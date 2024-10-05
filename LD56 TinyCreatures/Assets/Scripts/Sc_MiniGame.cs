@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Cinemachine;
+using UnityEngine.Animations;
 
 public class Sc_MiniGame : MonoBehaviour
 {
@@ -14,6 +16,8 @@ public class Sc_MiniGame : MonoBehaviour
     public float fillAmmount;
 
     public bool struggleDirection;
+
+    public Animator animator;
 
     private void Start()
     {
@@ -28,6 +32,7 @@ public class Sc_MiniGame : MonoBehaviour
     private void Update()
     {
         resistanceBar.fillAmount -= drainAmmount * Time.deltaTime;
+        animator.SetFloat("Blend", resistanceBar.fillAmount);
 
         if (struggleDirection)
         {
@@ -56,6 +61,7 @@ public class Sc_MiniGame : MonoBehaviour
         yield return new WaitForSeconds(Random.Range(2,6));
         struggleDirection = !struggleDirection;
         StartCoroutine(DirectionFlip());
+
     }
 
 }
