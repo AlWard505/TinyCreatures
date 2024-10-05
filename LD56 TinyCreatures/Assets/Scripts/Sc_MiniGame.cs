@@ -46,7 +46,7 @@ public class Sc_MiniGame : MonoBehaviour
 
             if (Input.GetKey(KeyCode.D))
             {
-                resistanceBar.fillAmount += fillAmmount * 2 * Time.deltaTime;
+                resistanceBar.fillAmount += fillAmmount * Time.deltaTime;
             }
         }
     }
