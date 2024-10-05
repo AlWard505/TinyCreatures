@@ -72,3 +72,6 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 LD56 Tiny Creatures/Library
 LD56 Tiny Creatures/UserSettings
+LD56 TinyCreatures/UserSettings
+LD56 TinyCreatures/Library
+LD56 TinyCreatures/Temp
