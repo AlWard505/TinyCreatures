@@ -7,37 +7,51 @@ public class Sc_MiniGame : MonoBehaviour
 {
 
     public Image resistanceBar;
+    public Image promptA;
+    public Image promptD;
 
     public float drainAmmount;
+    public float fillAmmount;
 
     public bool struggleDirection;
 
     private void Start()
     {
         StartCoroutine(DirectionFlip());
+
+        promptA.gameObject.SetActive(false);
+        promptD.gameObject.SetActive(false);
     }
 
     private void Update()
     {
         resistanceBar.fillAmount -= drainAmmount * Time.deltaTime;
 
-        if (Input.GetKey(KeyCode.A) && struggleDirection)
+        if (struggleDirection)
         {
-            resistanceBar.fillAmount += 0.2f * Time.deltaTime;
+            promptA.gameObject.SetActive(true);
+            promptD.gameObject.SetActive(false);
+
+            if (Input.GetKey(KeyCode.A))
+            {
+                resistanceBar.fillAmount += fillAmmount * Time.deltaTime;
+            }
         }
-        else if (Input.GetKey(KeyCode.D) && !struggleDirection)
+        else if (!struggleDirection)
         {
-            resistanceBar.fillAmount += 0.2f * Time.deltaTime;
-        }
-        else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
-        {
-            resistanceBar.fillAmount -= 0.05f * Time.deltaTime;
+            promptA.gameObject.SetActive(false);
+            promptD.gameObject.SetActive(true);
+
+            if (Input.GetKey(KeyCode.D))
+            {
+                resistanceBar.fillAmount += fillAmmount * 2 * Time.deltaTime;
+            }
         }
     }
 
     IEnumerator DirectionFlip()
     {
-        yield return new WaitForSeconds(Random.Range(3,12));
+        yield return new WaitForSeconds(Random.Range(2,6));
         struggleDirection = !struggleDirection;
         StartCoroutine(DirectionFlip());
     }
