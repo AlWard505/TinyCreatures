@@ -454,6 +454,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ResistanceBar
       objectReference: {fileID: 0}
+    - target: {fileID: 4474880979499533998, guid: b9aceae397362044cb2a15d807499da5, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7833215020057972090, guid: b9aceae397362044cb2a15d807499da5, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

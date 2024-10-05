@@ -19,6 +19,8 @@ public class Sc_MiniGame : MonoBehaviour
     {
         StartCoroutine(DirectionFlip());
 
+        resistanceBar.fillAmount = Random.Range(0.4f,0.6f);
+
         promptA.gameObject.SetActive(false);
         promptD.gameObject.SetActive(false);
     }
