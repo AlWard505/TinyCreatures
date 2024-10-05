@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : PersistantSingleton<GameManager>
 {
-    public Player Player { get; private set; }
+    public Player Player;
     
     public GameState State { get; private set;}
     public enum GameState {

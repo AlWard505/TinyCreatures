@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     [Header("Data Fields")]
     public PlayerSO playerSO;
+    public Rigidbody2D PlayerRB { get; private set; }
 
     private Camera mainCamera;
 
@@ -27,27 +28,15 @@ public class Player : MonoBehaviour
     }
 
     public void Start() {
+        GameManager.Instance.Player = this;
+
         Anim = graphicObject.GetComponent<Animator>();
+        PlayerRB = GetComponent<Rigidbody2D>();
         mainCamera = Camera.main;
     }
 
     public void Update() {
-        // Rotate View Towards Mouse Cursor
-		Vector2 positionOnScreen = Camera.main.WorldToViewportPoint (transform.position);
-		Vector2 mouseOnScreen = (Vector2)Camera.main.ScreenToViewportPoint(Input.mousePosition);
-		float angle = AngleBetweenTwoPoints(positionOnScreen, mouseOnScreen);
-		graphicObject.transform.rotation =  Quaternion.Euler (new Vector3(0f,0f,angle));
-
-        
-
-        switch (State) {
-            case PlayerStates.Idle:
-                break;
-            case PlayerStates.Move:
-                break;
-            case PlayerStates.Lasso:
-                break;
-        }
+        Move();
     }
 
     public void FixedUpdate() {
@@ -58,25 +47,17 @@ public class Player : MonoBehaviour
 		return Mathf.Atan2(a.y - b.y, a.x - b.x) * Mathf.Rad2Deg;
 	}
 
-    private Vector2 MoveInput() {
-        Vector2 newVector = Vector2.zero;
+    private void Move() {
+        float speedX = Input.GetAxisRaw("Horizontal") * playerSO.moveSpeed;
+        float speedY = Input.GetAxisRaw("Vertical") * playerSO.moveSpeed;
+        PlayerRB.velocity = new Vector2(speedX, speedY);
+    }
 
-        if (Input.GetKey(KeyCode.W)) {
-            newVector.y += 1;
-        }
-
-        if (Input.GetKey(KeyCode.S)) {
-            newVector.y -= 1;
-        }
-
-        if (Input.GetKey(KeyCode.A)) {
-            newVector.x -= 1;
-        }
-
-        if (Input.GetKey(KeyCode.D)) {
-            newVector.x += 1;
-        }
-
-        return newVector;
+    private void RotateGraphic() {
+        // Rotate Graphic Towards Mouse Cursor
+		Vector2 positionOnScreen = Camera.main.WorldToViewportPoint (transform.position);
+		Vector2 mouseOnScreen = (Vector2)Camera.main.ScreenToViewportPoint(Input.mousePosition);
+		float angle = AngleBetweenTwoPoints(positionOnScreen, mouseOnScreen);
+		graphicObject.transform.rotation =  Quaternion.Euler (new Vector3(0f,0f,angle));
     }
 }
