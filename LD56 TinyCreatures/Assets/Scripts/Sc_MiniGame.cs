@@ -18,6 +18,7 @@ public class Sc_MiniGame : MonoBehaviour
     public bool struggleDirection;
     public bool pass;
     public bool fail;
+    public GameObject devilDog;
 
     public Animator animator;
     public ParticleSystem confetti;
@@ -71,11 +72,13 @@ public class Sc_MiniGame : MonoBehaviour
         if (resistanceBar.fillAmount >= 1)
         {
             pass = true;
-            confetti.Play();
+            Refresh();
+
         }
         else if (resistanceBar.fillAmount <= 0)
         {
             fail = true;
+            Refresh();
         }
     }
 
@@ -87,12 +90,25 @@ public class Sc_MiniGame : MonoBehaviour
 
     }
 
+    //mini game reset could be a coroutine to give a little delay
+    //but pass and fail check are fine
     public void Refresh()
     {
+        if (pass)
+        {
+            pass = false;
+            confetti.Play();
+            if (devilDog != null)
+            {
+                devilDog.GetComponent<Sc_DevilDog>().MiniGameSuccess();
+            }
+        }
+        else if (fail)
+        {
+            fail = false;
+        }
 
         resistanceBar.fillAmount = Random.Range(0.4f, 0.6f);
-        pass = false;
-        fail = false;
 
     }
 
