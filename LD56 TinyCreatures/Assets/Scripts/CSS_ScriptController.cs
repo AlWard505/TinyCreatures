@@ -14,7 +14,7 @@ public class CSS_ScriptController : MonoBehaviour
     bool IsIntroductionDone = false;
     public GameObject _DialogBox, _customer;
     public bool testman = false;
-    public Transform _CustomerSpot, _Door,_parent;
+    public Transform _CustomerSpot, _Door,_parent,gameplaybit;
     public PersonalityTraits TestTrait;
     [System.Serializable]
     public struct Event
@@ -88,7 +88,11 @@ public class CSS_ScriptController : MonoBehaviour
                 StartCoroutine(CustomerLeave());
                 _IsEvent = false;
             }
-            else _parent.gameObject.SetActive(false);
+            else
+            {
+                _parent.gameObject.SetActive(false);
+                gameplaybit.gameObject.SetActive(true);
+            }
             return;
         }
         _DialogBox.SetActive(true);
