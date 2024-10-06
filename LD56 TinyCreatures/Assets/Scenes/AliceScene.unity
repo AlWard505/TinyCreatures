@@ -119,6 +119,50 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &237016018
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 237016019}
+  - component: {fileID: 237016020}
+  m_Layer: 5
+  m_Name: Door
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &237016019
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237016018}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1101405508}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: -1100, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &237016020
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237016018}
+  m_CullTransparentMesh: 1
 --- !u!1 &286672368
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,7 +256,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1101405508}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -312,6 +357,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1101405507
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1101405508}
+  - component: {fileID: 1101405509}
+  m_Layer: 5
+  m_Name: customer point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1101405508
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101405507}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 237016019}
+  m_Father: {fileID: 286672372}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1101405509
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101405507}
+  m_CullTransparentMesh: 1
 --- !u!1 &1142835243
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,20 +483,155 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0da02a48bb6545a41bda9ecd1c53f728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _DialogBox: {fileID: 5166035352305208980, guid: b41ea04bb6ef5f544af7a9945c61edb3, type: 3}
-  testman: 0
+  _DialogBox: {fileID: 9102652379260735812, guid: e11ae40226c9c864e8d467b70a2ea652, type: 3}
+  _customer: {fileID: 5126688557850655003, guid: 0548dcb3689e4d94a93fc0b7b7bc6186, type: 3}
+  testman: 1
+  _CustomerSpot: {fileID: 1101405508}
+  _Door: {fileID: 237016019}
+  TestTrait: 0
   _Events:
   - isRandom: 0
+    RoundAppearance: 2
     Dialog:
-    - you:\n meep moop
-    - 2
-    - 3
-    - 4
-    - 5
-    - slay
-    Character: {fileID: 0}
-    ReleventTrait: 0
-    ClosestTraits: 
+    - You:\n hey what can i do for you
+    - Emanon:\n hey
+    - Emanon:\n I would like to by a gun
+    - you:\n we do dogs here mate
+    - you:\n sorry man
+    - Emanon:\n do you have a dog in the shape of a gun
+    - you:\n no?
+    - you:\n are you stupid?
+    - Emanon:\n how about a dog that kills people
+    - you:\n oh yeah we have a couple of those hold on
+    RightDialog:
+    - sick thanks
+    - no prob
+    WrongDialog:
+    - ill kill you
+    - valid
+    CloseDialog:
+    - good enough
+    - thats what im best at
+    Character: {fileID: -7150098222209972378, guid: 8c2fa910358d1ce42bf495c56d1bc130, type: 3}
+    Speed: 250
+    RecievedDog: 0
+    ReleventTrait: 5
+    ClosestTraits: 03000000
+  - isRandom: 0
+    RoundAppearance: 5
+    Dialog:
+    - dogplease
+    - okay
+    RightDialog:
+    - sick thanks
+    - no prob
+    WrongDialog:
+    - ill kill you
+    - valid
+    CloseDialog:
+    - good enough
+    - thats what im best at
+    Character: {fileID: -5520521530436434158, guid: b279694eb8ecbea4591c6029a64603a1, type: 3}
+    Speed: 250
+    RecievedDog: 0
+    ReleventTrait: 2
+    ClosestTraits: 05000000
+  - isRandom: 0
+    RoundAppearance: 8
+    Dialog:
+    - dogplease
+    - okay
+    RightDialog:
+    - sick thanks
+    - no prob
+    WrongDialog:
+    - ill kill you
+    - valid
+    CloseDialog:
+    - good enough
+    - thats what im best at
+    Character: {fileID: -5520521530436434158, guid: b279694eb8ecbea4591c6029a64603a1, type: 3}
+    Speed: 250
+    RecievedDog: 0
+    ReleventTrait: 2
+    ClosestTraits: 05000000
+  - isRandom: 0
+    RoundAppearance: 7
+    Dialog:
+    - dogplease
+    - okay
+    RightDialog:
+    - sick thanks
+    - no prob
+    WrongDialog:
+    - ill kill you
+    - valid
+    CloseDialog:
+    - good enough
+    - thats what im best at
+    Character: {fileID: -5520521530436434158, guid: b279694eb8ecbea4591c6029a64603a1, type: 3}
+    Speed: 250
+    RecievedDog: 0
+    ReleventTrait: 2
+    ClosestTraits: 05000000
+  - isRandom: 0
+    RoundAppearance: 16
+    Dialog:
+    - dogplease
+    - okay
+    RightDialog:
+    - sick thanks
+    - no prob
+    WrongDialog:
+    - ill kill you
+    - valid
+    CloseDialog:
+    - good enough
+    - thats what im best at
+    Character: {fileID: -5520521530436434158, guid: b279694eb8ecbea4591c6029a64603a1, type: 3}
+    Speed: 250
+    RecievedDog: 0
+    ReleventTrait: 2
+    ClosestTraits: 05000000
+  - isRandom: 0
+    RoundAppearance: 80
+    Dialog:
+    - dogplease
+    - okay
+    RightDialog:
+    - sick thanks
+    - no prob
+    WrongDialog:
+    - ill kill you
+    - valid
+    CloseDialog:
+    - good enough
+    - thats what im best at
+    Character: {fileID: -5520521530436434158, guid: b279694eb8ecbea4591c6029a64603a1, type: 3}
+    Speed: 250
+    RecievedDog: 0
+    ReleventTrait: 2
+    ClosestTraits: 05000000
+  - isRandom: 0
+    RoundAppearance: 28
+    Dialog:
+    - dogplease
+    - okay
+    RightDialog:
+    - sick thanks
+    - no prob
+    WrongDialog:
+    - ill kill you
+    - valid
+    CloseDialog:
+    - good enough
+    - thats what im best at
+    Character: {fileID: -5520521530436434158, guid: b279694eb8ecbea4591c6029a64603a1, type: 3}
+    Speed: 250
+    RecievedDog: 0
+    ReleventTrait: 2
+    ClosestTraits: 05000000
+  _ScriptedEvents: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
