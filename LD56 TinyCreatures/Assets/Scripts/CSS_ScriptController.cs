@@ -6,10 +6,12 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System.Linq;
+using Unity.VisualScripting;
 public class CSS_ScriptController : MonoBehaviour
 {
     int _round = 0;
     bool _IsEvent = false;
+    bool IsIntroductionDone = false;
     public GameObject _DialogBox, _customer;
     public bool testman = false;
     public Transform _CustomerSpot, _Door;
@@ -34,7 +36,6 @@ public class CSS_ScriptController : MonoBehaviour
         public void IsRight(PersonalityTraits dog)
         {
             RecievedDog = true;
-            print("cookin?");
 
             if (dog == ReleventTrait)
             {
@@ -58,31 +59,30 @@ public class CSS_ScriptController : MonoBehaviour
     }
     Event CurrentEvent;
     TMP_Text _dialog;
-    public void CallEvent(Event Event, PersonalityTraits Dog = PersonalityTraits.Blank)
+    public void CallEvent(Event Event)
     {
-        if(Dog == PersonalityTraits.Blank& !_IsEvent)
-        {
-            _IsEvent = true;
-            CurrentEvent = Event;
-            CurrentEvent.RecievedDog = false;
-            CurrentEvent.currentDialog = CurrentEvent.Dialog;
-            CurrentEvent.Progress = 0;
-            StartCoroutine(EnterCustomer());
-            return;
-        }
+        _IsEvent = true;
+        CurrentEvent = Event;
+        CurrentEvent.RecievedDog = false;
+        IsIntroductionDone = false;
+        CurrentEvent.currentDialog = CurrentEvent.Dialog;
         CurrentEvent.Progress = 0;
-
-        CurrentEvent.IsRight(Dog);
-        NextLine();
+        StartCoroutine(EnterCustomer());
+        return;
 
     }
     public void NextLine()
     {
-        print(CurrentEvent.currentDialog.Length);
-        if(CurrentEvent.Progress == CurrentEvent.currentDialog.Length)
+        if(IsIntroductionDone)
+        {
+            CurrentEvent.Progress = 0;
+            IsIntroductionDone=false;
+            CurrentEvent.IsRight(TestTrait);
+        }
+        if (CurrentEvent.Progress == CurrentEvent.currentDialog.Length)
         {
             _DialogBox.SetActive(false);
-
+            IsIntroductionDone = true;
             if (CurrentEvent.RecievedDog)
             {
                 StartCoroutine(CustomerLeave());
@@ -98,6 +98,9 @@ public class CSS_ScriptController : MonoBehaviour
     public void ChooseEvent()
     {
         _round++;
+        Debug.Log("Round: " + _round);
+        print(_ScriptedEvents[0].RoundAppearance);
+
         if (_ScriptedEvents[0].RoundAppearance == _round)
         {
             CallEvent(_ScriptedEvents[0]);
@@ -105,8 +108,14 @@ public class CSS_ScriptController : MonoBehaviour
         }
         else
         {
-            //CallEvent(_Events[UnityEngine.Random.Range(0, _Events.Length)]);
-            CallEvent(_Events[0]);
+
+            int rand = UnityEngine.Random.Range(0, _Events.Length);
+            while (!_Events[rand].isRandom) 
+            {
+                rand = UnityEngine.Random.Range(0, _Events.Length);
+            }
+            CallEvent(_Events[rand]);
+
         }
     }
     private void Start()
@@ -124,34 +133,23 @@ public class CSS_ScriptController : MonoBehaviour
                 if (!ev.isRandom & ev.RoundAppearance == i)
                 {
                     _ScriptedEvents.Add(ev);
-                    print(i);
                     break;
                 }
             }
             
         }
-
-
-
         _DialogBox = Instantiate(_DialogBox, GameObject.Find("Canvas").transform);
         _customer = Instantiate(_customer, _Door);
         _dialog = _DialogBox.GetComponentInChildren<TMP_Text>();
         _DialogBox.SetActive(false);
+        ChooseEvent();
     }
     private void Update()
     {
         if (testman)
         {
             testman = false;
-            if (!_dialog.IsActive())
-            {
-                ChooseEvent();
-                TestTrait = PersonalityTraits.Blank;
-            }
-            else
-            {
-                NextLine();
-            }
+            NextLine();
         }
     }
     public IEnumerator EnterCustomer()
@@ -172,5 +170,6 @@ public class CSS_ScriptController : MonoBehaviour
             _customer.transform.Translate(Vector2.left *CurrentEvent.Speed *Time.deltaTime);
             yield return new WaitForEndOfFrame();
         }
+        ChooseEvent();
     }
 }
