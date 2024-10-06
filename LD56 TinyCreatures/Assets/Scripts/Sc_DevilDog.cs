@@ -31,13 +31,15 @@ public class Sc_DevilDog : MonoBehaviour
             miniGame.GetComponent<Sc_MiniGame>().Refresh();
             mgStart.GetComponent<Sc_MiniGameStart>().devilDogs.Remove(gameObject);
             mgStart.GetComponent<Sc_MiniGameStart>().DogBeGone();
+            mgStart.GetComponent<Sc_MiniGameStart>().TraitComapre();
         }
     }
 
     public void MiniGameHook()
     {
         mgStart.GetComponent<Sc_MiniGameStart>().MGOn();
-        miniGame.GetComponent<Sc_MiniGame>().devilDog = gameObject;
+        mgStart.GetComponent<Sc_MiniGameStart>().dogInGame = gameObject;
+
     }
 
 }
