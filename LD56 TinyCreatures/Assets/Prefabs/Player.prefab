@@ -49,6 +49,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSO: {fileID: 11400000, guid: 05d99806164752b40bf4c9da242817d7, type: 2}
+  tetherPoint: {fileID: 950659352035298558}
+  lassoObj: {fileID: 7730757890689453875, guid: d3df543933bc18a4baf55e27ffe8398d, type: 3}
   graphicObject: {fileID: 6635136054659747161}
 --- !u!58 &7393183946094873737
 CircleCollider2D:
