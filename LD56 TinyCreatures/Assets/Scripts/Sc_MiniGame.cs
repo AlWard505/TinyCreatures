@@ -20,6 +20,7 @@ public class Sc_MiniGame : MonoBehaviour
     public bool fail;
 
     public Animator animator;
+    public ParticleSystem confetti;
 
     private void Awake()
     {
@@ -70,6 +71,7 @@ public class Sc_MiniGame : MonoBehaviour
         if (resistanceBar.fillAmount >= 1)
         {
             pass = true;
+            confetti.Play();
         }
         else if (resistanceBar.fillAmount <= 0)
         {
