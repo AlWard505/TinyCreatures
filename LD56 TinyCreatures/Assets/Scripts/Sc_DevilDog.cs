@@ -9,6 +9,8 @@ public class Sc_DevilDog : MonoBehaviour
 
     public GameObject miniGame;
 
+    public CSS_ScriptController.PersonalityTraits dogTrait;
+
     private void Start()
     {
         miniGame = GameObject.FindGameObjectWithTag("MiniGame");

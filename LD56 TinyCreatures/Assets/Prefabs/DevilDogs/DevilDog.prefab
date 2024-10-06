@@ -234,8 +234,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd8338e1181e93046b9b3279a84dcee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resistance: 0
+  resistance: 1
   miniGame: {fileID: 0}
+  dogTrait: 0
 --- !u!1 &8755964808981361621
 GameObject:
   m_ObjectHideFlags: 0
