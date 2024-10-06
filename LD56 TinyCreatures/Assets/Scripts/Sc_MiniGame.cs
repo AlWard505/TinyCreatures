@@ -85,7 +85,7 @@ public class Sc_MiniGame : MonoBehaviour
 
     }
 
-    public void Reset()
+    public void Refresh()
     {
 
         resistanceBar.fillAmount = Random.Range(0.4f, 0.6f);
