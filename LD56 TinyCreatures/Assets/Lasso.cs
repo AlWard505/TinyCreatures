@@ -8,6 +8,9 @@ public class Lasso : MonoBehaviour
     public Transform lassoTetherB;
 
     public Vector2 targetPos;
+    public LayerMask dogLayer;
+
+    public bool hitSomething = false;
 
     public LineRenderer line;
 
@@ -18,6 +21,10 @@ public class Lasso : MonoBehaviour
     }
 
     public void OnTriggerEnter2D(Collider2D other) {
-
+        // Debug.Log("Hit: " + other.gameObject.name);
+        if (other.gameObject.layer == 6) {
+            hitSomething = true;
+            other.GetComponent<Sc_DevilDog>().MiniGameHook();
+        }
     }
 }

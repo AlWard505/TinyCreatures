@@ -117,16 +117,24 @@ public class Player : MonoBehaviour
         lassoInstance = Instantiate(lassoObj, transform.position, Quaternion.identity);
         lassoInstance.TryGetComponent(out Lasso lasso);
         lasso.targetPos = (Vector2)Camera.main.ViewportToWorldPoint(Camera.main.ScreenToViewportPoint(Input.mousePosition));
-        Debug.Log((Vector2)Camera.main.ViewportToWorldPoint(Camera.main.ScreenToViewportPoint(Input.mousePosition)));
+        //Debug.Log((Vector2)Camera.main.ViewportToWorldPoint(Camera.main.ScreenToViewportPoint(Input.mousePosition)));
     }
 
     private void MoveLasso(){
         if (lassoInstance != null) {
             lassoInstance.TryGetComponent(out Lasso lasso);
 
-            lassoInstance.transform.position = Vector2.MoveTowards(lassoInstance.transform.position, lasso.targetPos, 10f * Time.deltaTime);
-
-            if (Vector2.Distance(lassoInstance.transform.position, lasso.targetPos) < 0.1f) {
+            lassoInstance.transform.position = Vector2.MoveTowards(lassoInstance.transform.position, lasso.targetPos, 25f * Time.deltaTime);
+            
+            if (lasso.hitSomething) {
+                Debug.Log("Hit A Dog");
+                Destroy(lassoInstance);
+                lassoInstance = null;
+                isLasso = false;
+                State = PlayerStates.Idle;
+                lasso.hitSomething = false;
+            }
+            else if (Vector2.Distance(lassoInstance.transform.position, lasso.targetPos) < 0.1f) {
                 Debug.Log("Reached Target Position");
                 Destroy(lassoInstance);
                 lassoInstance = null;

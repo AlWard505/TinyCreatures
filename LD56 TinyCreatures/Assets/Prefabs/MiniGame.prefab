@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5988388207481919502}
   m_Layer: 5
   m_Name: MiniGame
-  m_TagString: Untagged
+  m_TagString: MiniGame
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -348,7 +348,9 @@ MonoBehaviour:
   struggleDirection: 0
   pass: 0
   fail: 0
+  devilDog: {fileID: 0}
   animator: {fileID: 4218422664481871686}
+  confetti: {fileID: 1258025395486686567}
 --- !u!95 &4218422664481871686
 Animator:
   serializedVersion: 7
@@ -640,6 +642,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbdfa04b0ab9d9f4c9b576bd93cd1d30, type: 3}
+--- !u!198 &1258025395486686567 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7537449317059867590, guid: fbdfa04b0ab9d9f4c9b576bd93cd1d30, type: 3}
+  m_PrefabInstance: {fileID: 8786242881661324961}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9140642382327105458 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 519343907029813523, guid: fbdfa04b0ab9d9f4c9b576bd93cd1d30, type: 3}
