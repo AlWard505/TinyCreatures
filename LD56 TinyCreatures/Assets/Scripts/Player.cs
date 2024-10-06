@@ -7,6 +7,12 @@ public class Player : MonoBehaviour
     [Header("Data Fields")]
     public PlayerSO playerSO;
     public Rigidbody2D PlayerRB { get; private set; }
+    public Transform tetherPoint;
+
+    public GameObject lassoObj;
+    private GameObject lassoInstance;
+
+    private bool isLasso = false;
 
     private Camera mainCamera;
 
@@ -36,7 +42,54 @@ public class Player : MonoBehaviour
     }
 
     public void Update() {
-        Move();
+
+        float inputX = Input.GetAxisRaw("Horizontal");
+        float inputY = Input.GetAxisRaw("Vertical");
+        Vector2 moveVector = new Vector2 (inputX, inputY);
+
+        switch (State) {
+            case PlayerStates.Idle:
+                PlayerRB.velocity = Vector2.zero;
+
+                if (Input.GetMouseButton(0)){
+                    State = PlayerStates.Lasso;
+                    break;
+                }
+
+                if (moveVector != Vector2.zero) {
+                    State = PlayerStates.Move;
+                }
+
+                break;
+
+            case PlayerStates.Move:
+                if (Input.GetMouseButton(0)) {
+                    State = PlayerStates.Lasso;
+                    break;
+                }
+
+                if (moveVector != Vector2.zero) {
+                    Move();
+                }
+                else {
+                    State = PlayerStates.Idle;
+                }
+
+                break;
+
+            case PlayerStates.Lasso:
+                PlayerRB.velocity = Vector2.zero;
+
+                if (!isLasso) {
+                    isLasso = true;
+                    InstantiatedLasso();    
+                }
+
+                MoveLasso();
+
+                break;
+
+        }
     }
 
     public void FixedUpdate() {
@@ -53,11 +106,33 @@ public class Player : MonoBehaviour
         PlayerRB.velocity = new Vector2(speedX, speedY);
     }
 
-    private void RotateGraphic() {
+    private void InstantiatedLasso() {
         // Rotate Graphic Towards Mouse Cursor
 		Vector2 positionOnScreen = Camera.main.WorldToViewportPoint (transform.position);
 		Vector2 mouseOnScreen = (Vector2)Camera.main.ScreenToViewportPoint(Input.mousePosition);
 		float angle = AngleBetweenTwoPoints(positionOnScreen, mouseOnScreen);
-		graphicObject.transform.rotation =  Quaternion.Euler (new Vector3(0f,0f,angle));
+
+        // Code Storage: Quaternion.Euler (new Vector3(0f,0f,angle))
+
+        lassoInstance = Instantiate(lassoObj, transform.position, Quaternion.identity);
+        lassoInstance.TryGetComponent(out Lasso lasso);
+        lasso.targetPos = (Vector2)Camera.main.ViewportToWorldPoint(Camera.main.ScreenToViewportPoint(Input.mousePosition));
+        Debug.Log((Vector2)Camera.main.ViewportToWorldPoint(Camera.main.ScreenToViewportPoint(Input.mousePosition)));
+    }
+
+    private void MoveLasso(){
+        if (lassoInstance != null) {
+            lassoInstance.TryGetComponent(out Lasso lasso);
+
+            lassoInstance.transform.position = Vector2.MoveTowards(lassoInstance.transform.position, lasso.targetPos, 10f * Time.deltaTime);
+
+            if (Vector2.Distance(lassoInstance.transform.position, lasso.targetPos) < 0.1f) {
+                Debug.Log("Reached Target Position");
+                Destroy(lassoInstance);
+                lassoInstance = null;
+                isLasso = false;
+                State = PlayerStates.Idle;
+            }
+        }
     }
 }
