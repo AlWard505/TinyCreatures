@@ -21,7 +21,6 @@ public class Sc_MiniGame : MonoBehaviour
     public GameObject devilDog;
 
     public Animator animator;
-    public ParticleSystem confetti;
 
     private void Awake()
     {
@@ -97,7 +96,6 @@ public class Sc_MiniGame : MonoBehaviour
         if (pass)
         {
             pass = false;
-            confetti.Play();
             if (devilDog != null)
             {
                 devilDog.GetComponent<Sc_DevilDog>().MiniGameSuccess();

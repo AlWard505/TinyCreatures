@@ -11,6 +11,11 @@ public class Sc_DevilDog : MonoBehaviour
 
     public CSS_ScriptController.PersonalityTraits dogTrait;
 
+    private void Awake()
+    {
+        resistance = Random.Range(0,3);
+    }
+
     private void Update()
     {
         miniGame = GameObject.FindGameObjectWithTag("MiniGame");
@@ -39,7 +44,6 @@ public class Sc_DevilDog : MonoBehaviour
     {
         mgStart.GetComponent<Sc_MiniGameStart>().MGOn();
         mgStart.GetComponent<Sc_MiniGameStart>().dogInGame = gameObject;
-
     }
 
 }
