@@ -490,7 +490,7 @@ MonoBehaviour:
   _Door: {fileID: 237016019}
   TestTrait: 0
   _Events:
-  - isRandom: 0
+  - isRandom: 1
     RoundAppearance: 2
     Dialog:
     - You:\n hey what can i do for you
@@ -517,120 +517,6 @@ MonoBehaviour:
     RecievedDog: 0
     ReleventTrait: 5
     ClosestTraits: 03000000
-  - isRandom: 0
-    RoundAppearance: 5
-    Dialog:
-    - dogplease
-    - okay
-    RightDialog:
-    - sick thanks
-    - no prob
-    WrongDialog:
-    - ill kill you
-    - valid
-    CloseDialog:
-    - good enough
-    - thats what im best at
-    Character: {fileID: -5520521530436434158, guid: b279694eb8ecbea4591c6029a64603a1, type: 3}
-    Speed: 250
-    RecievedDog: 0
-    ReleventTrait: 2
-    ClosestTraits: 05000000
-  - isRandom: 0
-    RoundAppearance: 8
-    Dialog:
-    - dogplease
-    - okay
-    RightDialog:
-    - sick thanks
-    - no prob
-    WrongDialog:
-    - ill kill you
-    - valid
-    CloseDialog:
-    - good enough
-    - thats what im best at
-    Character: {fileID: -5520521530436434158, guid: b279694eb8ecbea4591c6029a64603a1, type: 3}
-    Speed: 250
-    RecievedDog: 0
-    ReleventTrait: 2
-    ClosestTraits: 05000000
-  - isRandom: 0
-    RoundAppearance: 7
-    Dialog:
-    - dogplease
-    - okay
-    RightDialog:
-    - sick thanks
-    - no prob
-    WrongDialog:
-    - ill kill you
-    - valid
-    CloseDialog:
-    - good enough
-    - thats what im best at
-    Character: {fileID: -5520521530436434158, guid: b279694eb8ecbea4591c6029a64603a1, type: 3}
-    Speed: 250
-    RecievedDog: 0
-    ReleventTrait: 2
-    ClosestTraits: 05000000
-  - isRandom: 0
-    RoundAppearance: 16
-    Dialog:
-    - dogplease
-    - okay
-    RightDialog:
-    - sick thanks
-    - no prob
-    WrongDialog:
-    - ill kill you
-    - valid
-    CloseDialog:
-    - good enough
-    - thats what im best at
-    Character: {fileID: -5520521530436434158, guid: b279694eb8ecbea4591c6029a64603a1, type: 3}
-    Speed: 250
-    RecievedDog: 0
-    ReleventTrait: 2
-    ClosestTraits: 05000000
-  - isRandom: 0
-    RoundAppearance: 80
-    Dialog:
-    - dogplease
-    - okay
-    RightDialog:
-    - sick thanks
-    - no prob
-    WrongDialog:
-    - ill kill you
-    - valid
-    CloseDialog:
-    - good enough
-    - thats what im best at
-    Character: {fileID: -5520521530436434158, guid: b279694eb8ecbea4591c6029a64603a1, type: 3}
-    Speed: 250
-    RecievedDog: 0
-    ReleventTrait: 2
-    ClosestTraits: 05000000
-  - isRandom: 0
-    RoundAppearance: 28
-    Dialog:
-    - dogplease
-    - okay
-    RightDialog:
-    - sick thanks
-    - no prob
-    WrongDialog:
-    - ill kill you
-    - valid
-    CloseDialog:
-    - good enough
-    - thats what im best at
-    Character: {fileID: -5520521530436434158, guid: b279694eb8ecbea4591c6029a64603a1, type: 3}
-    Speed: 250
-    RecievedDog: 0
-    ReleventTrait: 2
-    ClosestTraits: 05000000
   _ScriptedEvents: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Emanon side_0: -7150098222209972378
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

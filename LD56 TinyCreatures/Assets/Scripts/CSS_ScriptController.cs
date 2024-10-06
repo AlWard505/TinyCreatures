@@ -14,7 +14,7 @@ public class CSS_ScriptController : MonoBehaviour
     bool IsIntroductionDone = false;
     public GameObject _DialogBox, _customer;
     public bool testman = false;
-    public Transform _CustomerSpot, _Door;
+    public Transform _CustomerSpot, _Door,_parent;
     public PersonalityTraits TestTrait;
     [System.Serializable]
     public struct Event
@@ -88,6 +88,7 @@ public class CSS_ScriptController : MonoBehaviour
                 StartCoroutine(CustomerLeave());
                 _IsEvent = false;
             }
+            else _parent.gameObject.SetActive(false);
             return;
         }
         _DialogBox.SetActive(true);
@@ -99,24 +100,20 @@ public class CSS_ScriptController : MonoBehaviour
     {
         _round++;
         Debug.Log("Round: " + _round);
-        print(_ScriptedEvents[0].RoundAppearance);
-
-        if (_ScriptedEvents[0].RoundAppearance == _round)
+        if (_ScriptedEvents.Count != 0) if (_ScriptedEvents[0].RoundAppearance == _round)
         {
             CallEvent(_ScriptedEvents[0]);
             _ScriptedEvents.RemoveAt(0);
+             return;
         }
-        else
+
+        int rand = UnityEngine.Random.Range(0, _Events.Length);
+        while (!_Events[rand].isRandom) 
         {
-
-            int rand = UnityEngine.Random.Range(0, _Events.Length);
-            while (!_Events[rand].isRandom) 
-            {
-                rand = UnityEngine.Random.Range(0, _Events.Length);
-            }
-            CallEvent(_Events[rand]);
-
+            rand = UnityEngine.Random.Range(0, _Events.Length);
         }
+        CallEvent(_Events[rand]);
+
     }
     private void Start()
     {
@@ -138,7 +135,7 @@ public class CSS_ScriptController : MonoBehaviour
             }
             
         }
-        _DialogBox = Instantiate(_DialogBox, GameObject.Find("Canvas").transform);
+        _DialogBox = Instantiate(_DialogBox, _parent);
         _customer = Instantiate(_customer, _Door);
         _dialog = _DialogBox.GetComponentInChildren<TMP_Text>();
         _DialogBox.SetActive(false);
