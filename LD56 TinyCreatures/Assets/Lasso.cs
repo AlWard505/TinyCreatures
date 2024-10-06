@@ -14,6 +14,8 @@ public class Lasso : MonoBehaviour
 
     public LineRenderer line;
 
+    public Sc_DevilDog caughtDog;
+
     public void Update() {
         lassoTetherB = GameManager.Instance.Player.tetherPoint;
         line.SetPosition(0, lassoTetherA.position);
@@ -25,6 +27,7 @@ public class Lasso : MonoBehaviour
         if (other.gameObject.layer == 6) {
             hitSomething = true;
             other.GetComponent<Sc_DevilDog>().MiniGameHook();
+            caughtDog = other.GetComponent<Sc_DevilDog>();
         }
     }
 }

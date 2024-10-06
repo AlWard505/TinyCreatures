@@ -7,11 +7,10 @@ public class Sc_DogSpawn : MonoBehaviour
 
     public GameObject[] dogToSpawn;
 
-    private void Start()
+
+    public void SpawnDevilDogs()
     {
-
-        Instantiate(dogToSpawn[Random.Range(0,dogToSpawn.Length +1)], gameObject.transform);
-
+        Instantiate(dogToSpawn[Random.Range(0, dogToSpawn.Length)], gameObject.transform);
     }
 
 }

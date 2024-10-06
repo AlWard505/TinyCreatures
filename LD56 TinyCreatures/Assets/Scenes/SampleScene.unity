@@ -1309,8 +1309,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5859663840089537327, guid: 5c0673825d95b3a409d83d9109e74f8b, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859663840089537327, guid: 5c0673825d95b3a409d83d9109e74f8b, type: 3}
       propertyPath: m_Name
       value: DogSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859663840089537327, guid: 5c0673825d95b3a409d83d9109e74f8b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

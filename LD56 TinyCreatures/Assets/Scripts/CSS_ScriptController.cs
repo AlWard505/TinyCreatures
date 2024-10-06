@@ -16,6 +16,7 @@ public class CSS_ScriptController : MonoBehaviour
     public bool testman = false;
     public Transform _CustomerSpot, _Door,_parent,gameplaybit;
     public PersonalityTraits TestTrait;
+    public GameObject[] dogSpawners;
     [System.Serializable]
     public struct Event
     {
@@ -92,6 +93,10 @@ public class CSS_ScriptController : MonoBehaviour
             {
                 _parent.gameObject.SetActive(false);
                 gameplaybit.gameObject.SetActive(true);
+                foreach (GameObject go in dogSpawners)
+                {
+                    go.GetComponent<Sc_DogSpawn>().SpawnDevilDogs();
+                }
             }
             return;
         }

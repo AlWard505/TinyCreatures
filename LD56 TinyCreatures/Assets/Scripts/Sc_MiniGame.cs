@@ -106,6 +106,8 @@ public class Sc_MiniGame : MonoBehaviour
         else if (fail)
         {
             fail = false;
+            gameObject.SetActive(false);
+            devilDog = null;
         }
 
         resistanceBar.fillAmount = Random.Range(0.4f, 0.6f);
