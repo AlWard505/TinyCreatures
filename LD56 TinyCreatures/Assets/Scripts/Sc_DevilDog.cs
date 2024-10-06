@@ -20,6 +20,11 @@ public class Sc_DevilDog : MonoBehaviour
         {
             resistance--;
         }
+        else if (resistance <= 0)
+        {
+            //get adopted idiot
+            miniGame.GetComponent<Sc_MiniGame>().devilDog = null;
+        }
     }
 
     public void MiniGameHook()

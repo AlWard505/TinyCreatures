@@ -1472,7 +1472,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3095782624440084078, guid: 7ba0405c7fe214d448e3fae6c4a7c51a, type: 3}
       propertyPath: resistance
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6595629855542921798, guid: 7ba0405c7fe214d448e3fae6c4a7c51a, type: 3}
       propertyPath: m_Name
