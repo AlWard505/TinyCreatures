@@ -41,7 +41,6 @@ public class Sc_DevilDog : MonoBehaviour
             miniGame.SetActive(false);
             miniGame.GetComponent<Sc_MiniGame>().devilDog = null;
             miniGame.GetComponent<Sc_MiniGame>().Refresh();
-            mgStart.GetComponent<Sc_MiniGameStart>().devilDogs.Remove(gameObject);
             mgStart.GetComponent<Sc_MiniGameStart>().DogBeGone();
             mgStart.GetComponent<Sc_MiniGameStart>().TraitComapre();
             GameObject.Find("EventSystem").GetComponent<CSS_ScriptController>().BackToDialog();
