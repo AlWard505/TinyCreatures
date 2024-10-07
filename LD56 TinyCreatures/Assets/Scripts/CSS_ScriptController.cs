@@ -166,6 +166,12 @@ public class CSS_ScriptController : MonoBehaviour
             NextLine();
         }
     }
+
+    public void testManTrue()
+    {
+        testman = true;
+    }
+
     public IEnumerator EnterCustomer()
     {
         _customer.GetComponent<Image>().sprite = CurrentEvent.Character;
