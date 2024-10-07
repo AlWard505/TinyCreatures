@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Sc_DevilDog : MonoBehaviour
@@ -14,8 +16,13 @@ public class Sc_DevilDog : MonoBehaviour
     private void Awake()
     {
         resistance = Random.Range(0,3);
+        gameObject.transform.Find("ThisGuy").GetComponent<TMP_Text>().text = dogTrait.ToString();
     }
-
+    public void UpdateTag(CSS_ScriptController.PersonalityTraits trait)
+    {
+        dogTrait = trait;
+        gameObject.transform.Find("ThisGuy").GetComponent<TMP_Text>().text = dogTrait.ToString();
+    }
     private void Update()
     {
         miniGame = GameObject.FindGameObjectWithTag("MiniGame");
@@ -32,12 +39,13 @@ public class Sc_DevilDog : MonoBehaviour
         else if (resistance <= 0)
         {
             miniGame.SetActive(false);
-            GameObject.Find("EventSystem").GetComponent<CSS_ScriptController>().BackToDialog();
             miniGame.GetComponent<Sc_MiniGame>().devilDog = null;
             miniGame.GetComponent<Sc_MiniGame>().Refresh();
             mgStart.GetComponent<Sc_MiniGameStart>().devilDogs.Remove(gameObject);
             mgStart.GetComponent<Sc_MiniGameStart>().DogBeGone();
             mgStart.GetComponent<Sc_MiniGameStart>().TraitComapre();
+            GameObject.Find("EventSystem").GetComponent<CSS_ScriptController>().BackToDialog();
+
         }
     }
 
@@ -45,6 +53,20 @@ public class Sc_DevilDog : MonoBehaviour
     {
         mgStart.GetComponent<Sc_MiniGameStart>().dogInGame = gameObject;
         mgStart.GetComponent<Sc_MiniGameStart>().MGOn();
+
+    }
+
+    private void OnMouseEnter()
+    {
+        gameObject.transform.Find("ThisGuy").gameObject.SetActive(true);
+
+    }
+
+
+    private void OnMouseExit()
+    {
+
+        gameObject.transform.Find("ThisGuy").gameObject.SetActive(false);
 
     }
 
