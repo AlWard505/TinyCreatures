@@ -8,6 +8,9 @@ public class Sc_DevilDog : MonoBehaviour
 {
 
     public int resistance;
+    public float moveSpeed;
+    public GameObject[] destinations;
+    private GameObject destination;
 
     public GameObject miniGame, mgStart;
 
@@ -15,6 +18,10 @@ public class Sc_DevilDog : MonoBehaviour
 
     private void Awake()
     {
+        StartCoroutine(DestinationUpdate());
+
+        destinations = GameObject.FindGameObjectsWithTag("Nav");
+
         resistance = Random.Range(0,3);
         gameObject.transform.Find("ThisGuy").GetComponent<TMP_Text>().text = dogTrait.ToString();
     }
@@ -25,8 +32,16 @@ public class Sc_DevilDog : MonoBehaviour
     }
     private void Update()
     {
-        miniGame = GameObject.FindGameObjectWithTag("MiniGame");
-        mgStart = GameObject.FindGameObjectWithTag("MiniGameStart");
+        if (miniGame == null)
+        {
+            miniGame = GameObject.FindGameObjectWithTag("MiniGame");
+        }
+        if (mgStart == null)
+        {
+            mgStart = GameObject.FindGameObjectWithTag("MiniGameStart");
+        }
+
+        transform.position = Vector2.MoveTowards(transform.position, destination.transform.position, moveSpeed * Time.deltaTime);
     }
 
     public void MiniGameSuccess()
@@ -67,6 +82,13 @@ public class Sc_DevilDog : MonoBehaviour
 
         gameObject.transform.Find("ThisGuy").gameObject.SetActive(false);
 
+    }
+
+    IEnumerator DestinationUpdate()
+    {
+        yield return new WaitForSeconds(Random.Range(2,7));
+        destination = destinations[Random.Range(0, destinations.Length)];
+        StartCoroutine(DestinationUpdate());
     }
 
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - MiniGame
   - MiniGameStart
+  - Nav
   layers:
   - Default
   - TransparentFX

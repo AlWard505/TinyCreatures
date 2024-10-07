@@ -413,6 +413,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resistance: 1
+  moveSpeed: 3
+  destinations: []
   miniGame: {fileID: 0}
   mgStart: {fileID: 0}
   dogTrait: 0

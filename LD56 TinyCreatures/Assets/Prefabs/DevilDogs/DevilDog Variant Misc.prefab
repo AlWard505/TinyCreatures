@@ -10,10 +10,14 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3975957978205969860, guid: 43b3aefbedf89f243b1234d1792dc21d, type: 3}
       propertyPath: m_Name
-      value: DevilDog Variant
+      value: DevilDog Variant Misc
       objectReference: {fileID: 0}
     - target: {fileID: 5067533895672787436, guid: 43b3aefbedf89f243b1234d1792dc21d, type: 3}
       propertyPath: dogTrait
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5067533895672787436, guid: 43b3aefbedf89f243b1234d1792dc21d, type: 3}
+      propertyPath: moveSpeed
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7262635393323394277, guid: 43b3aefbedf89f243b1234d1792dc21d, type: 3}
