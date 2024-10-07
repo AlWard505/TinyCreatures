@@ -105,6 +105,20 @@ public class CSS_ScriptController : MonoBehaviour
                 {
                     go.GetComponent<Sc_DogSpawn>().SpawnDevilDogs();
                 }
+                bool wecookin = false;
+                foreach (GameObject go in GameObject.Find("MiniGame").GetComponent<Sc_MiniGameStart>().devilDogs)
+                {
+                    if(go.GetComponent<Sc_DevilDog>().dogTrait == CurrentEvent.ReleventTrait)
+                    {
+                        wecookin = true;
+                        break;
+                    }
+                }
+                if (!wecookin)
+                {
+                    int dog = UnityEngine.Random.RandomRange(0, dogSpawners.Length);
+                    GameObject.Find("MiniGame").GetComponent<Sc_MiniGameStart>().devilDogs[dog].GetComponent<Sc_DevilDog>().dogTrait = CurrentEvent.ReleventTrait;
+                }
             }
             return;
         }
