@@ -174,7 +174,7 @@ public class CSS_ScriptController : MonoBehaviour
 
     public IEnumerator EnterCustomer()
     {
-        _customer.GetComponent<Image>().sprite = CurrentEvent.Character;
+        _customer.GetComponent<Cs_CustomerRandom>().randomPerson();
         while (_customer.transform.position.x < _CustomerSpot.position.x)
         {
             _customer.transform.Translate(Vector2.right *CurrentEvent.Speed *Time.deltaTime);
