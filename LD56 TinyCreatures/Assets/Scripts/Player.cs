@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -21,7 +22,8 @@ public class Player : MonoBehaviour
     public enum PlayerStates {
         Idle,
         Move,
-        Lasso
+        Lasso,
+        NoMove
     }
     
 
@@ -89,6 +91,13 @@ public class Player : MonoBehaviour
 
                 break;
 
+            default:
+                PlayerRB.velocity = Vector2.zero;
+                Destroy(lassoInstance);
+                lassoInstance = null;
+                isLasso = false;
+                break;
+
         }
     }
 
@@ -141,6 +150,15 @@ public class Player : MonoBehaviour
                 isLasso = false;
                 State = PlayerStates.Idle;
             }
+        }
+    }
+
+    public void ToggleMove(bool toggle) {
+        if (toggle) {
+            State = PlayerStates.Idle;
+        }
+        else {
+            State = PlayerStates.NoMove;
         }
     }
 }

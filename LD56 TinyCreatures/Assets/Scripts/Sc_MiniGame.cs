@@ -112,4 +112,12 @@ public class Sc_MiniGame : MonoBehaviour
 
     }
 
+    public void OnEnable() {
+        GameManager.Instance.Player.ToggleMove(false);
+    }
+
+    public void OnDisable() {
+        GameManager.Instance.Player.ToggleMove(true);
+    }
+
 }
