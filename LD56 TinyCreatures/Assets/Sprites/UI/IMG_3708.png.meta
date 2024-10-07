@@ -5,6 +5,33 @@ TextureImporter:
   - first:
       213: 5775667839760189647
     second: IMG_3708_0
+  - first:
+      213: 4251838690709179570
+    second: IMG_3708_1
+  - first:
+      213: 2810055398819623432
+    second: IMG_3708_2
+  - first:
+      213: 8704314377696967764
+    second: IMG_3708_3
+  - first:
+      213: 8165438959840407734
+    second: IMG_3708_4
+  - first:
+      213: 5043704950741482770
+    second: IMG_3708_5
+  - first:
+      213: 5832654676564941651
+    second: IMG_3708_6
+  - first:
+      213: -5635850947026141231
+    second: IMG_3708_7
+  - first:
+      213: -24767617746134948
+    second: IMG_3708_8
+  - first:
+      213: -5851832946468593160
+    second: IMG_3708_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -116,10 +143,10 @@ TextureImporter:
       name: IMG_3708_0
       rect:
         serializedVersion: 2
-        x: 1122
-        y: 288
-        width: 567
-        height: 1597
+        x: 2
+        y: 1399
+        width: 119
+        height: 152
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -129,6 +156,195 @@ TextureImporter:
       bones: []
       spriteID: fc8cd89ac4b472050800000000000000
       internalID: 5775667839760189647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IMG_3708_1
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 1401
+        width: 76
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bc8bf113c0910b30800000000000000
+      internalID: 4251838690709179570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IMG_3708_2
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 1516
+        width: 235
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 802ffc53f725ff620800000000000000
+      internalID: 2810055398819623432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IMG_3708_3
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 1451
+        width: 177
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45cf3ff1fcfebc870800000000000000
+      internalID: 8704314377696967764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IMG_3708_4
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 1397
+        width: 25
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b03c6cb877715170800000000000000
+      internalID: 8165438959840407734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IMG_3708_5
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 1123
+        width: 115
+        height: 337
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21d33d41ee6def540800000000000000
+      internalID: 5043704950741482770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IMG_3708_6
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 799
+        width: 100
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35b9c2e8680c1f050800000000000000
+      internalID: 5832654676564941651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IMG_3708_7
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 579
+        width: 103
+        height: 209
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1df35777c6f69c1b0800000000000000
+      internalID: -5635850947026141231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IMG_3708_8
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 224
+        width: 89
+        height: 245
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c581f4e9bf108aff0800000000000000
+      internalID: -24767617746134948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IMG_3708_9
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 3
+        width: 94
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f1efc480fc1acea0800000000000000
+      internalID: -5851832946468593160
       vertices: []
       indices: 
       edges: []
@@ -145,6 +361,15 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       IMG_3708_0: 5775667839760189647
+      IMG_3708_1: 4251838690709179570
+      IMG_3708_2: 2810055398819623432
+      IMG_3708_3: 8704314377696967764
+      IMG_3708_4: 8165438959840407734
+      IMG_3708_5: 5043704950741482770
+      IMG_3708_6: 5832654676564941651
+      IMG_3708_7: -5635850947026141231
+      IMG_3708_8: -24767617746134948
+      IMG_3708_9: -5851832946468593160
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
