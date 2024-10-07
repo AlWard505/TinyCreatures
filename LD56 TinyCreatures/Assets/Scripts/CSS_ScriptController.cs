@@ -72,6 +72,14 @@ public class CSS_ScriptController : MonoBehaviour
         return;
 
     }
+    public void BackToDialog()
+    {
+        _parent.gameObject.SetActive(true);
+        GameObject.Find("MiniGame").GetComponent<Sc_MiniGameStart>().DogBeGone();
+        gameplaybit.gameObject.SetActive(false);
+        NextLine();
+        
+    }
     public void NextLine()
     {
         if(IsIntroductionDone)

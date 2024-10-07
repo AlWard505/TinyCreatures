@@ -32,6 +32,7 @@ public class Sc_DevilDog : MonoBehaviour
         else if (resistance <= 0)
         {
             miniGame.SetActive(false);
+            GameObject.Find("EventSystem").GetComponent<CSS_ScriptController>().BackToDialog();
             miniGame.GetComponent<Sc_MiniGame>().devilDog = null;
             miniGame.GetComponent<Sc_MiniGame>().Refresh();
             mgStart.GetComponent<Sc_MiniGameStart>().devilDogs.Remove(gameObject);
@@ -42,8 +43,9 @@ public class Sc_DevilDog : MonoBehaviour
 
     public void MiniGameHook()
     {
-        mgStart.GetComponent<Sc_MiniGameStart>().MGOn();
         mgStart.GetComponent<Sc_MiniGameStart>().dogInGame = gameObject;
+        mgStart.GetComponent<Sc_MiniGameStart>().MGOn();
+
     }
 
 }
